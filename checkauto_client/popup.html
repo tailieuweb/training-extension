@@ -3,11 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="stylesheet" type="text/css" href="public/css/bootstrap.css">
   <link rel="stylesheet" type="text/css" href="public/css/styles.css">
-  <script src="public/js/jquery.js"></script>
-  <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
-    crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -15,7 +11,7 @@
     <h3>Check Auto</h3>
   </header>
   <div class="container">
-    <form id="formId">
+    <form id="formId" action="https://localhost/php-training/checkauto.php" method="POST">
       <div class="input-group mb-3">
         <div class="input-group-prepend">
           <span class="input-group-text" id="mssv">MSSV</span>
@@ -23,12 +19,10 @@
         <input type="text" id="inputuser" class="form-control" aria-label="Default"
           aria-describedby="inputGroup-sizing-default" name="mssv">
       </div>
+      <input id="save" class="btn btn-outline-success" type="submit" value="Send">
     </form>
-    <button id="save" class="btn btn-outline-success" type="submit" onclick="save()">OK</button>
+
   </div>
-  <script src="public/js/popup.js"></script>
-  <script src="public/js/poper.js"></script>
-  <script src="public/js/bootstrap.min.js"></script>
 </body>
 
 </html>
