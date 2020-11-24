@@ -24,7 +24,7 @@ include("./connection/user.php");
 
         }
 
-        .check_box {
+        input {
             position: absolute;
             border: solid 1px;
             width: 3%;
@@ -33,8 +33,7 @@ include("./connection/user.php");
         }
 
         .row_check {
-
-            text-align: right;
+            text-align: left;
         }
     </style>
 </head>
@@ -57,13 +56,13 @@ include("./connection/user.php");
                     <td><?php echo $row["hoten"] ?></td>
                     <td>
                         <div class="row_check">
-                            <div class="check_box">
-                                <?php
-                                if ($row["status"] == 0) {
-                                    echo 5;
-                                }
-                                ?>
-                            </div>
+                        <?php
+                        if($row["status"] == 0)
+                        {?>
+                            <input type="text" name="" id="">
+                        <?php }else{ ?>
+                            <input type="password" name="" id="">
+                         <?php } ?>                          
                         </div>
                     </td>
                 </tr>
