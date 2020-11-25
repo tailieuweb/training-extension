@@ -1,0 +1,26 @@
+{
+    "manifest_version": 2,
+    "name": "Auto Check",
+    "description": "Công cụ xem danh sách user điểm danh tự động UserLogin trên trình duyệt Chrome & Cờ rôm+",
+    "version": "1.0.0",
+    "icons": { 
+        "16": "public/image/icon.png",
+        "48": "public/image/icon.png",
+       "128": "public/image/icon.png" 
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "http://localhost:8080/UserLogin/checkautos.php"
+            ],
+            "css": ["public/css/styles.css"],
+            "js": ["public/js/jquery.js","public/js/content.js"]
+        }
+    ],
+
+    "browser_action": {
+        "default_title": "Auto Check (Giáo Viên)",
+        "default_popup": "popup.html",
+        "default_icon": "public/image/icon.png"
+    }
+}
