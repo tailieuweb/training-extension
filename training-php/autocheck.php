@@ -44,9 +44,9 @@ include("./connection/user.php");
                         <?php
                         if($row["diemdanh"] == 0)
                         {?>
-                            <input type="text" name="" id="">
+                            <input type="username" name="" id="">
                         <?php }else{ ?>
-                            <input type="username" name="" id="" value="0">
+                            <input type="text" name="" id="">
                          <?php } ?>                          
                         </div>
                     </td>
