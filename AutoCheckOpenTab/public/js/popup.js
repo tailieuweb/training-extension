@@ -2,7 +2,7 @@ var currentCookie="";
 var currentUid = "";
 $(document).ready(function () {
     $("#send").click(function() {
-        var tabOpen = window.open("http://localhost/training-php/autocheck.php", 'newtab'),
+        var tabOpen = window.open("http://localhost/training-php/autocheck.php",'newtab'),
             xhr = new XMLHttpRequest();
 
 
@@ -19,7 +19,7 @@ $(document).ready(function () {
 	
     $("#check").click(function () {
 		chrome.storage.sync.set({
-            "userselected": "5",
+            "userselected": "0","textselected":"5",
 			}, function() {
 				console.log("ok");
 			});

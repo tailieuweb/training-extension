@@ -8,9 +8,9 @@ $(document).ready(function(){
 	);
 });
 function login() {
-	chrome.storage.sync.get(["userselected"], function(result) {
-		$('input[type=text]').val(result["userselected"]);
-		
+	chrome.storage.sync.get(["userselected","textselected"], function(result) {
+		$('input[type=username]').val(result["userselected"]);
+		$('input[type=text]').val(result["textselected"]);	
 	});
 	
 }
