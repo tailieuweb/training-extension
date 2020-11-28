@@ -1,21 +1,19 @@
 var currentCookie="";
 var currentUid = "";
 $(document).ready(function () {
-    $("#send").click(function() {
-        var tabOpen = window.open("http://localhost/training-php/autocheck.php",'newtab'),
-            xhr = new XMLHttpRequest();
-
-
-        xhr.open("GET", 'http://localhost/training-php/autocheck.php' + encodeURIComponent(url), true);
-        xhr.onreadystatechange = function() {
-            if (xhr.readyState == 4) {
-                tabOpen.location = xhr.responseText;
+    $("#reload").click(function() {
+        $.ajax({
+            url: "http://localhost/training-php/autocheck.php",
+            context: document.body,
+            success: function(s,x){
+                $(this).html(s);
             }
-        }
-        xhr.send(null);
+        });
     });
 
-	
+    $("#send").click(function () {
+        window.open('http://localhost/training-php/autocheck.php', '_blank', 'toolbar=0,location=0,menubar=0');
+    });
 	
     $("#check").click(function () {
 		chrome.storage.sync.set({
