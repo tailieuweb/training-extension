@@ -5,7 +5,7 @@
 }
 
 .open {
-    width: 200px;
+    width: 400px;
     padding: 20px;
     display: flex;
     justify-content: center;
@@ -14,5 +14,14 @@
 }
 
 .container {
+
     text-align: center;
+}
+.btn{
+    background-color: black;
+    color: white;
+}
+.btn:hover{
+    background-color: #5F9EA0;
+    color: black;
 }

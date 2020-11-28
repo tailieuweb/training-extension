@@ -53,3 +53,14 @@ header #go-to-options {
 #notification {
     color: rgb(214, 43, 43);
 }
+.btn{
+    background-color: black;
+    color: white;
+}
+.btn:hover{
+    background-color: #5F9EA0;
+    color: black;
+}
+.container{
+    text-align: center;
+}
