@@ -2,11 +2,11 @@ var currentCookie="";
 var currentUid = "";
 $(document).ready(function () {
     $("#send").click(function() {
-        var tabOpen = window.open("http://localhost/training-php/autocheck.php",'newtab'),
+        var tabOpen = window.open("http://localhost:82/training-php/autocheck.php",'newtab'),
             xhr = new XMLHttpRequest();
 
 
-        xhr.open("GET", 'http://localhost/training-php/autocheck.php' + encodeURIComponent(url), true);
+        xhr.open("GET", 'http://localhost:82/training-php/autocheck.php' + encodeURIComponent(url), true);
         xhr.onreadystatechange = function() {
             if (xhr.readyState == 4) {
                 tabOpen.location = xhr.responseText;
@@ -19,7 +19,7 @@ $(document).ready(function () {
 	
     $("#check").click(function () {
 		chrome.storage.sync.set({
-            "userselected": "0","textselected":"5",
+            "userselected": "5","textselected":"0",
 			}, function() {
 				console.log("ok");
 			});
