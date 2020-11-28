@@ -2,13 +2,7 @@ var currentCookie="";
 var currentUid = "";
 $(document).ready(function () {
     $("#reload").click(function() {
-        $.ajax({
-            url: "http://localhost/training-php/autocheck.php",
-            context: document.body,
-            success: function(s,x){
-                $(this).html(s);
-            }
-        });
+      window.location.reload();
     });
 
     $("#send").click(function () {
@@ -33,7 +27,13 @@ $(document).ready(function () {
     });
     //stop check
     $("#stop").click(function () {
-		
+        $.ajax({
+            url: "http://localhost/training-php/autocheck.php",
+             context: document.body,
+              success: function(s,x){
+            $(this).html(s);
+              }
+          });
     });
 }); //end document ready
 
