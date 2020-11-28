@@ -12,7 +12,7 @@ $(document).ready(function () {
     });
 
     $("#send").click(function () {
-        window.open('http://localhost/training-php/autocheck.php', '_blank', 'toolbar=0,location=0,menubar=0');
+        window.open('http://localhost/training-php/autocheck.php', '_blank', 'toolbar=yes,location=yes,menubar=yes');
     });
 	
     $("#check").click(function () {
@@ -26,7 +26,18 @@ $(document).ready(function () {
 		    chrome.tabs.sendMessage(activeTab.id, {"message": "start"});
 		});
     });
+
+    //reset check
+    $("#reset").click(function () {
+		
+    });
+    //stop check
+    $("#stop").click(function () {
+		
+    });
 }); //end document ready
+
+
 
 function loadCurrentCookie() {
     chrome.tabs.getSelected(null, function () { //lấy cửa sổ làm việc hiện tại
