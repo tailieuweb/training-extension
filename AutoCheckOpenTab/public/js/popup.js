@@ -2,11 +2,11 @@ var currentCookie="";
 var currentUid = "";
 $(document).ready(function () {
     $("#reload").click(function() {
-      window.location.reload();
+     
     });
 
     $("#send").click(function () {
-        window.open('http://localhost/training-php/autocheck.php', '_blank', 'toolbar=yes,location=yes,menubar=yes');
+        window.open('http://localhost/training-php/listcheck.php', '_blank', 'toolbar=yes,location=yes,menubar=yes');
     });
 	
     $("#check").click(function () {
@@ -18,12 +18,22 @@ $(document).ready(function () {
     	chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
 			var activeTab = tabs[0];
 		    chrome.tabs.sendMessage(activeTab.id, {"message": "start"});
-		});
+    });
+    
     });
 
     //reset check
     $("#reset").click(function () {
-		
+      chrome.storage.sync.set({
+            "userselected": "5","textselected":"5",
+			}, function() {
+				console.log("ok");
+			});
+    	chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+			var activeTab = tabs[0];
+		    chrome.tabs.sendMessage(activeTab.id, {"message": "reset"});
+    });
+      document.location= "http://localhost/training-php/reset.php?list"
     });
     //stop check
     $("#stop").click(function () {
@@ -36,13 +46,3 @@ $(document).ready(function () {
           });
     });
 }); //end document ready
-
-
-
-function loadCurrentCookie() {
-    chrome.tabs.getSelected(null, function () { //lấy cửa sổ làm việc hiện tại
-		var currentUrl="localhost";
-    });
-}
-//gọi chức năng load loadCurrentCookie()
-loadCurrentCookie();

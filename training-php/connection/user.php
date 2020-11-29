@@ -9,6 +9,7 @@ if(isset($_GET['mssv']))
     mysqli_query($conn, $sql);
 }
 
+
 $sql1 = "SELECT * FROM `listsv`";
 $result = $conn->query($sql1);
 ?>
