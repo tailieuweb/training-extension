@@ -45,11 +45,13 @@ include("./connection/user.php");
         }
     </style>
 </head>
-    <div class="title"> <h1>Danh Sách Điểm Danh</h1></div>
+   
 <body>
+    <div class="title"> <h1>Danh Sách Điểm Danh</h1></div>
     <table class="table">
         <thead>
             <tr>
+                <th scope="col">STT</th>
                 <th scope="col">MSSV</th>
                 <th scope="col">Họ Tên</th>
                 <th scope="col">Vắng</th>
@@ -77,5 +79,4 @@ include("./connection/user.php");
         </tbody>
     </table>
 </body>
-
 </html>
