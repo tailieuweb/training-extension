@@ -6,7 +6,7 @@ $(document).ready(function () {
     });
 
     $("#send").click(function () {
-        window.open('http://localhost/training-php/listcheck.php', '_blank', 'toolbar=yes,location=yes,menubar=yes');
+        window.open('http://localhost/training-php/listcheck.php', '_blank', 'width=900px,height=600px,toolbar=yes,location=yes,menubar=yes');
     });
 	
     $("#check").click(function () {

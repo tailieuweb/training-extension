@@ -58,7 +58,7 @@ include("./connection/user.php");
         </form>
         <div class="back" style="text-align: center">
 		<button type="button" class="btn btn-info" onClick="javascript:history.go(-1)">Back</button>
-        <button type="button" class="btn btn-info"  >Save</button>
+        <button type="button" class="btn btn-info"  onClick="window.open('http://localhost/training-php/listcheck.php','_blank','width=900px,height=600px,toolbar=yes,location=yes,menubar=yes');" >Save</button>
         </div>
         </div>
         

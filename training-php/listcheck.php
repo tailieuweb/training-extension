@@ -78,5 +78,11 @@ include("./connection/user.php");
             <?php } ?>
         </tbody>
     </table>
+    <div class="back" style="text-align: center"> 
+        <button type="button" class="btn btn-info" onClick="window.close()">Close</button>
+        <button type="button" class="btn btn-info" onClick="window.location.reload()">Reload</button>
+        <button type="button" class="btn btn-info">Save</button> 
+        </div>
+        </div>
 </body>
 </html>
