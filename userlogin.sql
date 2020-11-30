@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 24, 2020 lúc 07:25 AM
+-- Thời gian đã tạo: Th10 30, 2020 lúc 07:44 AM
 -- Phiên bản máy phục vụ: 10.4.6-MariaDB
 -- Phiên bản PHP: 7.3.9
 
@@ -31,8 +31,20 @@ SET time_zone = "+00:00";
 CREATE TABLE `autocheck` (
   `id` int(11) NOT NULL,
   `mssv` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `mac_address` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `date` date NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `autocheck`
+--
+
+INSERT INTO `autocheck` (`id`, `mssv`, `mac_address`, `date`) VALUES
+(100, '18211TT5624', '0A-00-27-00-00-08', '2020-11-26'),
+(101, '18211TT1949', '0A-00-27-00-00-09', '2020-11-25'),
+(103, '18211TT1949', '0A-00-27-00-00-09', '2020-11-27'),
+(104, '18211TT0435', '0A-00-27-00-00-09', '2020-11-26'),
+(105, '18211TT0435', '0A-00-27-00-00-09', '2020-11-30');
 
 -- --------------------------------------------------------
 
@@ -61,7 +73,7 @@ INSERT INTO `users` (`id`, `custom_id`, `mssv`, `username`, `fullname`, `email`,
 (4, 'a87ff679a2f3e71d9181a67b7542122c1603719914', '18211TT1924', 'nguyenducduy', 'Nguyá»…n Äá»©c Duy', 'nguyenducduy@gmail.com', 'user', 'c4ca4238a0b923820dcc509a6f75849b', 'mgcxksvza7jhnf9bd87581514483-bang-gia-can-ho-diamond-riverside-quan-8-chinh-sach-thanh-toan-2020.png'),
 (5, 'e4da3b7fbbce2345d7772b0674a318d51603719914', '18211TT1949', 'huynhdailong', 'Huá»³nh Äáº¡i Long', 'huynhdailong@gmail.com', 'user', 'c4ca4238a0b923820dcc509a6f75849b', 'cb9kzhg7avfjnmxds8140749435download.jpg'),
 (1, 'e4da3b7fbbce2345d7772b0674a318d516037dsadsadsadsa', '18211TT0435', 'phamvanhieu', 'Pháº¡m VÄƒn Hiá»‡u', 'phamvanhieu@gmail.com', 'user', 'c4ca4238a0b923820dcc509a6f75849b', '7d9kvjazxshbm8fncg504278615Thegioididong-icon.png'),
-(3, 'e4da3b7fbbce2345d7772b0674a3sadsada', '18211TT5624', 'levantrung', 'Le Van trung', 'levantrung@gmail.com', 'user', 'c4ca4238a0b923820dcc509a6f75849b', 'cs78dgabnzxvfjkmh95516925big-pk-800-300-800x300.png');
+(3, 'e4da3b7fbbce2345d7772b0674a3sadsada', '18211TT5624', 'levantrung', 'LÃª VÄƒn Trung', 'levantrung@gmail.com', 'user', 'c4ca4238a0b923820dcc509a6f75849b', 'cs78dgabnzxvfjkmh95516925big-pk-800-300-800x300.png');
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -87,7 +99,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT cho bảng `autocheck`
 --
 ALTER TABLE `autocheck`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=90;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=106;
 
 --
 -- AUTO_INCREMENT cho bảng `users`
