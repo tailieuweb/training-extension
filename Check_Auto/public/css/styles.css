@@ -54,12 +54,12 @@ header #go-to-options {
     color: rgb(214, 43, 43);
 }
 .btn{
-    background-color: black;
-    color: white;
+    background-color: rgb(13, 207, 241);
+    color: rgb(255, 255, 255);
 }
 .btn:hover{
     background-color: #5F9EA0;
-    color: black;
+    color: rgb(16, 48, 230);
 }
 .container{
     text-align: center;

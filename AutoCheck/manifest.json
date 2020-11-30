@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
-    "name": "Open List Auto Check",
-    "description": "Open list auto check",
+    "name": "Autocheck",
+    "description": "Extension điểm danh tự động dành cho sever",
     "version": "1.0",
     "permissions": ["tabs", "*://*/*", "storage"],
     "content_scripts": [{
@@ -11,7 +11,7 @@
         "js": ["public/js/jquery.js", "public/js/content.js"]
     }],
     "browser_action": {
-        "default_title": "Check Auto",
+        "default_title": "Autocheck",
         "default_popup": "popup.html",
         "default_icon": "public/images/check.png"
     }

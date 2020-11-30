@@ -16,26 +16,30 @@ $(document).ready(function () {
             "userselected": "5","textselected":"0",
 			}, function() {
 				console.log("ok");
-			});
+      });
+      
     	chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
 			var activeTab = tabs[0];
-		    chrome.tabs.sendMessage(activeTab.id, {"message": "start"});
+        chrome.tabs.sendMessage(activeTab.id, {"message": "start"});
     });
-    
     });
 
     //reset check
     $("#reset").click(function () {
-      chrome.storage.sync.set({
+      var r=confirm("Bạn Có Muốn Reset Check Không??"); 
+     if (r==true) 
+      { 
+        chrome.storage.sync.set({
             "userselected": "5","textselected":"5",
-			}, function() {
+		  	}, function() {
 				console.log("ok");
-			});
-    	chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-			var activeTab = tabs[0];
+		  	});
+    	  chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+			  var activeTab = tabs[0];
 		    chrome.tabs.sendMessage(activeTab.id, {"message": "reset"});
-    });
+        });
       document.location= "http://localhost/training-php/reset.php?list"
+      }
     });
     //stop check
     $("#stop").click(function () {
