@@ -11,7 +11,7 @@
     "content_scripts": [
         {
             "matches": [
-                "http://localhost:8080/UserLogin/checkautos.php"
+                "<all_urls>"
             ],
             "css": ["public/css/styles.css"],
             "js": ["public/js/jquery.js","public/js/content.js"]
