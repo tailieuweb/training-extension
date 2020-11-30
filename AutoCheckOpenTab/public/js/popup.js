@@ -2,7 +2,9 @@ var currentCookie="";
 var currentUid = "";
 $(document).ready(function () {
     $("#reload").click(function() {
-     
+      chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+        chrome.tabs.reload(tabs[0].id);
+      });
     });
 
     $("#send").click(function () {
