@@ -2,8 +2,6 @@
 $(document).ready(function () {
 	chrome.runtime.onMessage.addListener(function (
 		request,
-		sender,
-		sendResqonse
 	) {
 		if (request.message === "start") {
 			load_presence();
@@ -11,6 +9,9 @@ $(document).ready(function () {
 		if (request.message === "clean") {
 			console.log('clean');
 			clean_status();
+		}
+		if (request.message === "reload") {
+			load_presence();
 		}
 	});
 });
