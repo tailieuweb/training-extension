@@ -8,6 +8,10 @@ $(document).ready(function () {
 		if (request.message === "start") {
 			load_presence();
 		}
+		if (request.message === "clean") {
+			console.log('clean');
+			clean_status();
+		}
 	});
 });
 
@@ -51,4 +55,13 @@ function load_presence() {
 			}
 		});
 	});
+}
+
+function clean_status() {
+	var total_user_server = $('[id^="grvListStudents_lblStudentID_"]').length;
+	for (var i = 0; i < total_user_server; i++) {
+		$('#grvListStudents_txtVangCP_' + i).val("");
+		$('#inputnumber' + i).val("");
+		$('#grvListStudents_txtVangKP_' + i).val("");
+	}
 }

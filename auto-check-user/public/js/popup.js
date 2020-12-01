@@ -1,5 +1,5 @@
 $(document).ready(function () {
-	//the first load database to extension 
+	/*the first load database to extension */
 	$.ajax({    //create an ajax request to display.php
 		type: "GET",
 		url: "http://localhost/php-training/for-extension/auto-check-presence.php",
@@ -23,7 +23,7 @@ $(document).ready(function () {
 	});
 	/*-------------------------------------------*/
 
-	// initialize storage for the list presence 
+	/* initialize storage for the list presence */
 	chrome.storage.sync.get(function () {
 		user = { "mssv_user": [] };
 		chrome.storage.sync.set({
@@ -35,7 +35,7 @@ $(document).ready(function () {
 	});
 	/*-------------------------------------------*/
 
-	//Sử lý sự kiện click
+	/* event handling click load button */
 	$('#load').click(function () {
 		// alert($('#save').html());
 		if ($('#load').html() == 'Load data') {
@@ -43,7 +43,7 @@ $(document).ready(function () {
 			$('#load').attr('disabled', "true");
 		}
 	});
-	/*-------------------------------------------*/
+
 	$("#load").click(function () {
 		// console.log($('#mssv_user2').val());
 
@@ -75,4 +75,14 @@ $(document).ready(function () {
 		});
 	});
 	/*-------------------------------------------*/
+
+	/* event handling click clean button */
+	$("#clean").click(function () {
+		//Use the chrome.tabs API to interact with the browser's tab system
+		chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+			var activeTab = tabs[0];
+			chrome.tabs.sendMessage(activeTab.id, { "message": "clean" });
+		});
+	});
+	/*-------------------------------------------*/	
 });
