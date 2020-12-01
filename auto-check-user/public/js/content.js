@@ -11,7 +11,7 @@ $(document).ready(function () {
 			clean_status();
 		}
 		if (request.message === "reload") {
-			load_presence();
+			reload();
 		}
 	});
 });
@@ -43,8 +43,8 @@ function load_presence() {
 		/* Test mssv users post up and auto-fill tabs */
 		chrome.storage.sync.get(["list"], function (result_sync) {
 			var list_user_presenced = result_sync['list'];
-			console.log(list_user_presenced['mssv']);
 			console.log(list_user_server['mssv_user']);
+			console.log(list_user_presenced['mssv']);	
 
 			for (let i = 0; i < list_user_server['mssv_user'].length; i++) {
 				if (jQuery.inArray(list_user_server['mssv_user'][i], list_user_presenced['mssv']) !== -1) {
@@ -65,4 +65,28 @@ function clean_status() {
 		$('#inputnumber' + i).val("");
 		$('#grvListStudents_txtVangKP_' + i).val("");
 	}
+}
+
+function reload(){
+	chrome.storage.sync.get(["list_online"], function (result) {
+
+		var list_user_server = result['list_online'];
+		console.log("so user tren server: " + list_user_server['mssv_user'].length);
+
+		/* Test mssv users post up and auto-fill tabs */
+		chrome.storage.sync.get(["list"], function (result_sync) {
+			var list_user_presenced = result_sync['list'];
+			console.log(list_user_presenced['mssv']);
+			console.log(list_user_server['mssv_user']);
+
+			for (let i = 0; i < list_user_server['mssv_user'].length; i++) {
+				if (jQuery.inArray(list_user_server['mssv_user'][i], list_user_presenced['mssv']) !== -1) {
+					$('#grvListStudents_txtVangCP_' + i).val(0);
+				} else {
+					$('#inputnumber' + i).val(5);
+					$('#grvListStudents_txtVangKP_' + i).val(5);
+				}
+			}
+		});
+	});
 }
