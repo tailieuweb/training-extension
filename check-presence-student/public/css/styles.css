@@ -1,5 +1,5 @@
 header h3{
-	float: left; margin-left: 32%;
+	text-align: center;
 }
 header #go-to-options{
 	float: right;
@@ -8,6 +8,7 @@ header #go-to-options{
   padding-bottom: 0.5em;
   width: 450px;
   border-radius: 5px;
+  text-align: center;
 }
 .input-group-text{
 	background: #fff;
