@@ -47,13 +47,41 @@ $(document).ready(function () {
 
   $("#load").click(function () {
     list_user_presenced();
+    $("#clean").show();
+    //Use the chrome.tabs API to interact with the browser's tab system
+    chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+      var activeTab = tabs[0];
+      chrome.tabs.sendMessage(activeTab.id, { message: "start" });
+    });
   });
   /*-------------------------------------------*/
 
   /* event handling click clean button */
+  $("#clean").hide();
   $("#clean").click(function () {
     $("#load").hide();
     $("#reload").show();
+    
+    $("#responsecontainer").html();
+    /* load database to extension */
+    $.ajax({
+      //create an ajax request to display.php
+      type: "GET",
+      url: "http://localhost/php-training/for-extension/auto-check-presence.php",
+      dataType: "html", //expect html to be returned
+      success: function (response) {
+        $("#responsecontainer").html(response);
+        //alert(response);
+      },
+    });
+    /*-------------------------------------------*/
+    chrome.storage.sync.get(function () {
+      user = { mssv: [] };
+      chrome.storage.sync.set({
+        list: user,
+      });
+    });
+
     //Use the chrome.tabs API to interact with the browser's tab system
     chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
       var activeTab = tabs[0];
@@ -61,8 +89,29 @@ $(document).ready(function () {
     });
   });
   /*-------------------------------------------*/
+
+  /* event handling click reload button */
   $("#reload").hide();
   $("#reload").click(function () {
+    /* load database to extension */
+    $.ajax({
+      //create an ajax request to display.php
+      type: "GET",
+      url: "http://localhost/php-training/for-extension/auto-check-presence.php",
+      dataType: "html", //expect html to be returned
+      success: function (response) {
+        $("#responsecontainer").html(response);
+        //alert(response);
+      },
+    });
+    /*-------------------------------------------*/
+    chrome.storage.sync.get(function () {
+      user = { mssv: [] };
+      chrome.storage.sync.set({
+        list: user,
+      });
+    });
+    list_user_presenced();
     //Use the chrome.tabs API to interact with the browser's tab system
     chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
       var activeTab = tabs[0];
@@ -93,11 +142,5 @@ function list_user_presenced() {
       }
     }
     console.log(result["list"]);
-  });
-
-  //Use the chrome.tabs API to interact with the browser's tab system
-  chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
-    var activeTab = tabs[0];
-    chrome.tabs.sendMessage(activeTab.id, { message: "start" });
   });
 }

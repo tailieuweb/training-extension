@@ -5,6 +5,12 @@ $(document).ready(function () {
 	) {
 		if (request.message === "start") {
 			load_presence();
+			chrome.storage.sync.get(function () {
+				user = { mssv: [] };
+				chrome.storage.sync.set({
+					list: user,
+				});
+			});
 		}
 		if (request.message === "clean") {
 			console.log('clean');
@@ -12,6 +18,12 @@ $(document).ready(function () {
 		}
 		if (request.message === "reload") {
 			reload();
+			chrome.storage.sync.get(function () {
+				user = { mssv: [] };
+				chrome.storage.sync.set({
+					list: user,
+				});
+			});
 		}
 	});
 });
@@ -44,11 +56,12 @@ function load_presence() {
 		chrome.storage.sync.get(["list"], function (result_sync) {
 			var list_user_presenced = result_sync['list'];
 			console.log(list_user_server['mssv_user']);
-			console.log(list_user_presenced['mssv']);	
+			console.log(list_user_presenced['mssv']);
 
 			for (let i = 0; i < list_user_server['mssv_user'].length; i++) {
 				if (jQuery.inArray(list_user_server['mssv_user'][i], list_user_presenced['mssv']) !== -1) {
 					$('#grvListStudents_txtVangCP_' + i).val(0);
+					$('#inputnumber' + i).val("");
 				} else {
 					$('#inputnumber' + i).val(5);
 					$('#grvListStudents_txtVangKP_' + i).val(5);
@@ -67,7 +80,7 @@ function clean_status() {
 	}
 }
 
-function reload(){
+function reload() {
 	chrome.storage.sync.get(["list_online"], function (result) {
 
 		var list_user_server = result['list_online'];
